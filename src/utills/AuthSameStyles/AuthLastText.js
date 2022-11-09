@@ -14,7 +14,7 @@ const AuthLastTextstyles = StyleSheet.create({
      alignContent:'center',
     justifyContent:'center',
   alignSelf:'center',
-  marginTop:hp(2)
+  marginVertical:hp(2)
    // backgroundColor:'red' 
   },
   lasttext:

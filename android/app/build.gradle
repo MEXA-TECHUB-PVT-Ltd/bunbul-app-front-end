@@ -265,6 +265,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation project(':react-native-plaid-link-sdk')
+    implementation 'com.facebook.fresco:animated-gif:2.0.0'   //use
 
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules

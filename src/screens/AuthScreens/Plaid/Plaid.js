@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import {
-  Image, View, Text, TouchableOpacity, SafeAreaView, ScrollView
+  Image, View, Text, TouchableOpacity, SafeAreaView, ScrollView,
+  ImageBackground
 } from 'react-native';
 
 //////////////app images///////////
@@ -29,11 +30,13 @@ import styles from './styles';
 import Colors from '../../../utills/Colors';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp }
   from 'react-native-responsive-screen';
-
+  import { PlaidLink, LinkSuccess, LinkExit } from 'react-native-plaid-link-sdk';
 
 import { BASE_URL } from '../../../utills/ApiRootUrl';
+import Lottie from 'lottie-react-native';
 
-const Signup = ({ navigation }) => {
+
+const Plaid = ({ navigation }) => {
 
   /////////TextInput References///////////
   const ref_input2 = useRef();
@@ -163,12 +166,12 @@ const Signup = ({ navigation }) => {
         setloading(false)
         console.log('response', response);
         if (response[0].error == true) {
-          setsnackbarValue({ value: response[0].message, color: 'darkred' });
+          setsnackbarValue({ value: response[0].message, color: 'yellow' });
           setVisible('true');
           
         } 
         else if (response[0].error == false) {
-          navigation.navigate('Plaid')
+          navigation.navigate('BottomTab')
         }
        })
       .catch(error => {
@@ -181,147 +184,124 @@ const Signup = ({ navigation }) => {
   return (
 
     <SafeAreaView style={styles.container}>
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        showsHorizontalScrollIndicator={false}
-      >
-        {show && (
-          <DateTimePicker
-            testID="dateTimePicker"
-            value={date}
-            mode={mode}
-            display="default"
-            locale="es-ES"
-            themeVariant="light"
-            onChange={onChange}
-            style={{
-              shadowColor: '#fff',
-              shadowRadius: 0,
-              shadowOpacity: 1,
-              shadowOffset: { height: 0, width: 0 },
-              color: '#1669F',
-              textColor: '#1669F'
-            }}
-          />
-        )}
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-          <TouchableOpacity onPress={() => navigation.goBack()}>
-            <View style={{ height: hp(5), width: wp(5), marginLeft: wp(8), marginTop: hp(4) }}>
-              <Image
-                source={appImages.backicon}
-                style={{ height: hp(2.5), width: wp(6) }}
-                resizeMode='contain'
-              />
-            </View>
-          </TouchableOpacity>
+        <ImageBackground source={appImages.plaidPage} resizeMode="contain" style={{
+          justifyContent: "center",
+          width: '100%',
+          height: hp('50%'),
+          marginTop: hp('-5%'),
+         }}>
+    </ImageBackground>
+      <View style={{
+        width: wp('100%'),
+        alignSelf: 'center',
+        marginTop: hp('-15%'),
+        backgroundColor:' red',
+        justifyContent: 'center',
+        flexDirection: 'column',
 
-          <View style={styles.imageview}>
-            <Image
-              source={appImages.signuptop}
-              style={styles.image}
-              resizeMode='cover'
-            />
-          </View>
+      }}>
+      <Lottie source={require('./check.json')} 
+      style={{width:wp('23%'),height:hp('23%'),
+    alignSelf:'center'
+    // ,backgroundColor:'red'
+    }}
+      autoPlay loop />
+      <Text
+      style={{
+        alignSelf:'center',
+        fontSize:36,
+        fontWeight:'bold',
+        fontFamily:'Poppins-Bold',
+        color : '#000EDD',
+      }}
+      >Welcome</Text>
+      <Text
+      style={{
+        alignSelf:'center',
+        fontSize:25,
+        // fontWeight:'bold',
+        fontFamily:'Poppins-Medium',
+        color : '#2E2E2E',
+        marginVertical:hp('2%')
+      }}
+      >Let the savings begin!</Text>
+      <Text
+      style={{
+        alignSelf:'center',
+        fontSize:17,
+        fontFamily:'Poppins-Medium',
+        color : '#707070',
+      }}
+      > Connect your bank account</Text>
+      <Text
+      style={{
+        alignSelf:'center',
+        fontSize:17,
+        fontFamily:'Poppins-Medium',
+        color : '#707070',
+        marginTop:hp('-.5%')
+      }}
+      > And let us detect your subscriptions</Text>
+     
+     <View
+     style={{
+      alignSelf:'center',
+      flexDirection:'row',
+      justifyContent:'center',
+      alignItems:'center',
+       backgroundColor:'#E4EEFA',
+       padding:hp('.51%'),
+        borderRadius:30,
+        paddingHorizontal:wp('3%'),
+        marginTop:hp('2%')
+    }}
+     >
+       <Image
+        style={{
+          width:10,
+          height:10,
+        }}
+        source={appImages.awesomeLock}
+      />
+ <Text
+      style={{
+        fontSize:9,
+        fontFamily:'Poppins-Medium',
+        color : '#000EDD',
+        marginLeft:wp('1%')
+      }}
+      >Bank-level Encryption</Text>
+     </View>
+     
+      </View>
+      
 
-        </View>
-        <View style={AuthTextstyles.maintextview}>
-          <Text style={AuthTextstyles.toptext}>Sign Up</Text>
-          <Text style={AuthTextstyles.subtext}>Create an account
-          </Text>
-        </View>
-
-        <View style={AuthInputstyles.inputview}>
-          <TextInput
-            label={'Name'}
-            returnKeyType={"next"}
-            onSubmitEditing={() => { ref_input2.current.focus() }}
-            blurOnSubmit={false}
-            autoFocus={true}
-            onChangeText={setUsername}
-            style={AuthInputstyles.inputeditable}
-            underlineColor={Colors.appgreycolor}
-            activeUnderlineColor={Colors.appgreycolor}
-            placeholderTextColor={Colors.greytext}
-            placeholder={'Enter your Name'}
-          />
-          <TouchableOpacity onPress={showDatepicker}>
-            <TextInput
-              label={'Date of birth'}
-              onChangeText={onChange}
-              value={showdaywise}
-              editable={false}
-              style={AuthInputstyles.inputeditable}
-              underlineColor={Colors.appgreycolor}
-              activeUnderlineColor={Colors.appgreycolor}
-              placeholderTextColor={'black'}
-              right={<TextInput.Icon name={'calendar-range'} color={Colors.greyicons}
-                onPress={showDatepicker}
-              />}
-            />
-          </TouchableOpacity>
-          <TextInput
-            ref={ref_input2}
-            label={'Email'}
-            onChangeText={setEmail}
-            returnKeyType={"next"}
-            onSubmitEditing={() => { ref_input3.current.focus() }}
-            blurOnSubmit={false}
-            style={AuthInputstyles.inputeditable}
-            underlineColor={Colors.appgreycolor}
-            activeUnderlineColor={Colors.appgreycolor}
-            keyboardType='email-address'
-            autoCapitalize='none'
-            placeholderTextColor={'black'}
-          />
-          <TextInput
-            ref={ref_input3}
-            label={'Password'}
-            onChangeText={setPassword}
-            style={AuthInputstyles.inputeditable}
-            underlineColor={Colors.appgreycolor}
-            activeUnderlineColor={Colors.appgreycolor}
-            secureTextEntry={passwordVisibility}
-            enablesReturnKeyAutomatically
-            right={<TextInput.Icon name={rightIcon} color={Colors.greyicons}
-              onPress={handlePasswordVisibility} />}
-            placeholderTextColor={'black'}
-          />
-        </View>
-
-
-
-        <View style={styles.buttonview}>
-          <CustomButtonhere
-            title={'Sign Up'}
-            widthset={'80%'}
-            loading={loading}
-            disabled={disable}
-            //onPress={() => formValidation()}
-            onPress={() => formValidation()}
-          />
-
-        </View>
-        <View style={AuthLastTextstyles.lasttextview}>
-          <Text style={AuthLastTextstyles.lasttext}>Already have an account.</Text>
-          <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-            <Text style={AuthLastTextstyles.lasttext1}>Sign In</Text>
-          </TouchableOpacity>
-        </View>
-        <Snackbar
-          duration={1000}
-          visible={visible}
-          onDismiss={onDismissSnackBar}
-          style={{
-            backgroundColor: snackbarValue.color,
-            marginBottom: '20%',
-            zIndex: 999,
-          }}>
-          {snackbarValue.value}
-        </Snackbar>
-      </ScrollView>
+      
+      <PlaidLink
+        tokenConfig={{
+            token: "link-sandbox-9732f948-9960-41dd-b4b1-20f19b728d05",
+        }}
+        onSuccess={(success) => { console.log(success) }}
+        onExit={(exit) => { console.log(exit) }}
+    >
+        <Text
+        style={{
+          alignSelf:'center',
+          marginTop:hp('5%'),
+          backgroundColor:'#000EDD',
+          width:wp('40%'),
+          textAlign:'center',
+          padding:hp('1%'),
+          color:'#fff',
+          fontFamily:'Poppins-SemiBold',
+          fontSize:14,
+          borderRadius:30
+        }}
+        >Connect</Text>
+    </PlaidLink>
     </SafeAreaView>
 
   )
 };
 
-export default Signup;
+export default Plaid;

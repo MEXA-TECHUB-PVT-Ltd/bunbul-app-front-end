@@ -13,6 +13,7 @@ const appImages = {
   save:require(IMAGES_DIR + 'save.png'),
   savetop:require(IMAGES_DIR + 'savetop.png'),
   manage:require(IMAGES_DIR + 'manage.png'),
+  discover:require(IMAGES_DIR + 'discover.png'),
   managetop:require(IMAGES_DIR + 'managetop.png'),
   discovertop:require(IMAGES_DIR + 'discovertop.png'),
   signintop:require(IMAGES_DIR + 'signIn.png'),  
@@ -23,5 +24,7 @@ posterimage:require(IMAGES_DIR + 'poster.png'),
 netflix:require(IMAGES_DIR + 'Netflix.png'),
 sliderback:require(IMAGES_DIR + 'sliderback.png'),
 cameraicon:require(IMAGES_DIR + 'profilecameraicon.png'),
+plaidPage:require(IMAGES_DIR + 'plaid_page.png'),
+awesomeLock:require(IMAGES_DIR + 'Iconawesome-lock.png'),
 };
 export {appImages};

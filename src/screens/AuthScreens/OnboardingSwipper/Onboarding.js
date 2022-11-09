@@ -44,7 +44,7 @@ const Onboarding = ({navigation}) => {
   ////////////////api data////////////
 ///////////////index1///////////
   const[Index1image, setIndex1image]= useState(appImages.save)
-  const[Index1title, setIndex1title]= useState('Save')
+  const[Index1title, setIndex1title]= useState('SAVE')
   const[Index1paragraph, setIndex1paragraph]= useState('Save money on your monthly subscriptions without having to cancel')
 
   ///////////////index2///////////
@@ -53,7 +53,7 @@ const Onboarding = ({navigation}) => {
   const[Index2paragraph, setIndex2paragraph]= useState('Keep tabs on all your monthly subscriptions and get one monthly bill')
 
   ///////////////index3///////////
-  const[Index3image, setIndex3image]= useState(appImages.manage)
+  const[Index3image, setIndex3image]= useState(appImages.discover)
   const[Index3title, setIndex3title]= useState('DISCOVER')
   const[Index3paragraph, setIndex3paragraph]= useState('Finding your new favorite subscription made convenient')
 
@@ -183,7 +183,7 @@ source={Index2image}
 
 <Image
           source={appImages.discovertop}
-    style={{height:hp(30),width:wp(59)}}
+    style={{height:hp(30),width:wp(59),marginTop:13}}
     resizeMode='contain'
 
 />
@@ -192,7 +192,7 @@ source={Index2image}
                         <Image
                         source={Index3image}
                                 //source={{uri:BASE_URL+Index3image}}
-                                style={{       height:hp(20), width:wp(70),}}
+                                style={{       height:hp(30), width:wp(90),}}
                                 resizeMode='contain'
                             />
                     </View>
@@ -203,7 +203,8 @@ source={Index2image}
                     </View>
                     <View style={styles.buttonview1}>
                         <View style={{flex:0.5,
-                        //backgroundColor:'red'
+                        // backgroundColor:'red',
+                        top:-hp(.5),
                         }}>
                         <CustomButtonhere
                           widthset={'30%'}
@@ -213,6 +214,7 @@ source={Index2image}
                         />
                         </View>
                             <View style={{flex:0.5,alignSelf:'flex-end',
+                             top:-hp(.5),
                         //backgroundColor:'red'
                         }}>
                             <CustomButtonhere
