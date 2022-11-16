@@ -33,17 +33,17 @@ function BottomTab() {
        tabBarActiveTintColor:'white',
          tabBarInactiveTintColor:'grey',
            tabBarStyle:  {height: 70 },
-       
-       } }
-    tabBarOptions={{
-      activeTintColor:Colors.Appthemecolor,
+           activeTintColor:Colors.Appthemecolor,
       labelStyle: {
         fontSize: 12,
         marginBottom:12,
         padding: 0,
         fontWeight:'bold'
-      },
-    }}
+      }
+       
+       } }
+    
+    
     >
       <Tab.Screen name="Home" component={Home} 
       options={{

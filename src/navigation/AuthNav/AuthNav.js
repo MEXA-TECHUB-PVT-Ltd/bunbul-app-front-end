@@ -19,7 +19,7 @@ function AuthNav() {
   return (
       <Stack.Navigator>
 
-      {/* <Stack.Screen name="SplashScreen" component={SplashScreen}
+      <Stack.Screen name="SplashScreen" component={SplashScreen}
         options={{
         headerShown: false,
         }} />
@@ -46,7 +46,7 @@ function AuthNav() {
  <Stack.Screen name="Verification" component={Verification}
         options={{
         headerShown: false,
-        }} /> */}
+        }} />
  <Stack.Screen name="Plaid" component={Plaid}
         options={{
         headerShown: false,

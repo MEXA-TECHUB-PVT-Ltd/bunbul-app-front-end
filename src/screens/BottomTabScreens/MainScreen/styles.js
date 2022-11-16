@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   {
     color: Colors.Appthemecolor,
     fontFamily:fontFamily.Poppins_Medium,
-    fontSize: hp(2.1),
+    // fontSize: hp(2.1),
   },
   dateformattext:
   {

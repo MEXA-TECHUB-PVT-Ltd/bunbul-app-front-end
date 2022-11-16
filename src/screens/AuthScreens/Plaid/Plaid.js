@@ -279,11 +279,14 @@ const Plaid = ({ navigation }) => {
       
       <PlaidLink
         tokenConfig={{
-            token: "link-sandbox-9732f948-9960-41dd-b4b1-20f19b728d05",
+            token: "link-sandbox-d181c353-84a1-4e3e-ac4a-f14d87c201c5",
         }}
-        onSuccess={(success) => { console.log(success) }}
-        onExit={(exit) => { console.log(exit) }}
-    >
+        onSuccess={(success) => { 
+          console.log(success)
+          navigation.navigate('BottomTab')
+         }}
+        onExit={(exit) => { navigation.navigate('BottomTab') }}
+      >
         <Text
         style={{
           alignSelf:'center',

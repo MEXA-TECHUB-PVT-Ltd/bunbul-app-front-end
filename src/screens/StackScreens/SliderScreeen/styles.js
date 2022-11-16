@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     color: 'black',
     fontFamily:fontFamily.Poppins_Regular,
     fontSize: hp(1.8),
-    textAlign:'justify'
+    textAlign:'left'
   },
   buttonview:
   { 

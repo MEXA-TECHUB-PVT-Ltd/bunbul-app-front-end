@@ -29,11 +29,12 @@ function App() {
     <Provider store={Store}>
       <NavigationContainer>
         <Stack.Navigator>
+         
           <Stack.Screen name="AuthNav" component={AuthNav}
             options={{
               headerShown: false,
             }} />
-          <Stack.Screen name="BottomTab" component={BottomTab}
+             <Stack.Screen name="BottomTab" component={BottomTab}
             options={{
               headerShown: false,
             }} />

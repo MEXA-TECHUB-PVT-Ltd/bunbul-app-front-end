@@ -168,7 +168,7 @@ const Signup = ({ navigation }) => {
           
         } 
         else if (response[0].error == false) {
-          navigation.navigate('Plaid')
+          navigation.navigate('BottomTab')
         }
        })
       .catch(error => {

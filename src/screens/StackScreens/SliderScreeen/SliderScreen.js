@@ -234,10 +234,33 @@ marginTop:hp(3),margin:hp(2)
 </View>
 <View style={{alignItems:'center',justifyContent:'center'}}>
 
-                <Text style={styles.subtext}>Lorem ipsum dolor sit amet, 
-                consetetur sadipscing elitr, 
-                sed diam nonumy eirmod tempor invidunt ut labore et dolore
-                 magna aliquyam erat, sed diam</Text>
+                
+
+                 {
+                         route.params.navtype === 'Spotify'?  <Text style={styles.subtext}>Listen to your favorite music, podcasts and audiobooks.
+                         </Text>
+           :
+           route.params.navtype === 'Youtube'?    <Text style={styles.subtext}>
+           Easily explore the world of music ad-free, offline, and with the screen locked. Available on mobile and desktop
+                      </Text>
+           :
+           route.params.navtype === 'Disney'?    <Text style={styles.subtext}>
+           The streaming home of your favorite stories
+                      </Text>
+           :
+           route.params.navtype === 'Netflix'?   <Text style={styles.subtext}>
+            Start watching unlimited movies, TV shows, and more.
+           </Text>
+           :
+           route.params.navtype === 'HBOmax'?  <Text style={styles.subtext}>
+           Now streaming blockbuster movies, epic originals, and addictive series.
+                      </Text>
+           :
+           route.params.navtype === 'Hulu'?  <Text style={styles.subtext}>
+           Get endless entertainment, live sports, and the shows and movies you love.
+                      </Text>
+           :null
+                } 
 </View>
 <View style={styles.buttonview}>
             <CustomButtonhere
