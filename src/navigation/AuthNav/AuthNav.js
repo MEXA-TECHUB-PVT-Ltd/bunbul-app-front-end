@@ -12,6 +12,7 @@ import NewPassword from '../../screens/AuthScreens/NewPassword/NewPassword';
 import Verification from '../../screens/AuthScreens/Email Verification/Verification'
 import Onboarding from '../../screens/AuthScreens/OnboardingSwipper/Onboarding';
 import Plaid from '../../screens/AuthScreens/Plaid/Plaid';
+import VerifyCode from '../../screens/AuthScreens/VerifyCode/VerifyCode';
 
 
 const Stack = createNativeStackNavigator();
@@ -43,7 +44,11 @@ function AuthNav() {
         options={{
         headerShown: false,
         }} />
- <Stack.Screen name="Verification" component={Verification}
+        <Stack.Screen name="Verification" component={Verification}
+        options={{
+        headerShown: false,
+        }} />
+         <Stack.Screen name="VerifyCode" component={VerifyCode}
         options={{
         headerShown: false,
         }} />

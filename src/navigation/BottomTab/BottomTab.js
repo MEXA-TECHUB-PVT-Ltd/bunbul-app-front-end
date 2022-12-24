@@ -32,10 +32,10 @@ function BottomTab() {
         headerShown: false,
        tabBarActiveTintColor:'white',
          tabBarInactiveTintColor:'grey',
-           tabBarStyle:  {height: 70 },
+           tabBarStyle:  {height: 50 },
            activeTintColor:Colors.Appthemecolor,
       labelStyle: {
-        fontSize: 12,
+        fontSize: 10,
         marginBottom:12,
         padding: 0,
         fontWeight:'bold'
@@ -50,7 +50,7 @@ function BottomTab() {
         headerShown: false,
         tabBarIcon: ({ color, focused }) => (
           <View style={[style.tab, focused ? style.selectedTab : null]}>
-           <Entypo name="home" color={color} size={32} />
+           <Entypo name="home" color={color} size={24} />
           </View>
         ),
       }}/>
@@ -60,7 +60,7 @@ function BottomTab() {
         title:'Notification',
         tabBarIcon: ({ color,focused }) => (
           <View style={[style.tab, focused ? style.selectedTab : null]}>
-          <Entypo name="shop" color={color} size={32} />
+          <Entypo name="shop" color={color} size={24} />
           </View>
          ),
         }}/>
@@ -71,7 +71,7 @@ function BottomTab() {
         title:'Profile',
         tabBarIcon: ({ color ,focused}) => (
           <View style={[style.tab, focused ? style.selectedTab : null]}>
-          <Ionicons name="person" color={color} size={32} />
+          <Ionicons name="person" color={color} size={24} />
           </View>
          ),
         }}/>
@@ -81,8 +81,8 @@ function BottomTab() {
 const style = StyleSheet.create({
 
   tab: {
-    width: wp(15),
-    height: hp(7),
+    width: wp(10),
+    height: hp(5),
     borderRadius: wp(10),
     justifyContent: 'center',
     alignItems: 'center',

@@ -132,8 +132,8 @@ itemimageView1:
     marginVertical:wp('2%'),
     marginHorizontal:wp('2%'),
     alignItems:'center',
-    borderColor:'grey',
-    borderWidth:12
+    borderColor:'#FFCF21',
+    borderWidth:5
     //position:'absolute'
 
 },

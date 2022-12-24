@@ -274,12 +274,9 @@ const Plaid = ({ navigation }) => {
      </View>
      
       </View>
-      
-
-      
-      <PlaidLink
+       <PlaidLink
         tokenConfig={{
-            token: "link-sandbox-d181c353-84a1-4e3e-ac4a-f14d87c201c5",
+            token: "link-sandbox-7607e8db-9e90-46ea-9b6a-e07d98c22a45",
         }}
         onSuccess={(success) => { 
           console.log(success)

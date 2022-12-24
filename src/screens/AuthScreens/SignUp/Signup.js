@@ -40,6 +40,7 @@ const Signup = ({ navigation }) => {
   const ref_input3 = useRef();
 
   //textfields
+  const [name, setName] = useState('');
   const [Username, setUsername] = useState('');
   const [Password, setPassword] = useState('');
   const [Email, setEmail] = useState('');
@@ -75,6 +76,10 @@ const Signup = ({ navigation }) => {
     // input validation
     if (Username == '') {
       setsnackbarValue({ value: "Please Enter Username", color: 'red' });
+      setVisible('true');
+    }
+    if (name == '') {
+      setsnackbarValue({ value: "Please Enter Name", color: 'red' });
       setVisible('true');
     }
     else if (Email == '') {
@@ -147,8 +152,8 @@ const Signup = ({ navigation }) => {
       'Content-Type': 'application/json',
     };
     var Data = {
-      name: Username,
-      dob: showdaywise,
+      name: name,
+      user_name: Username,
       email: Email,
       password: Password,
     };
@@ -161,14 +166,18 @@ const Signup = ({ navigation }) => {
       .then(response => {
         setdisable(false)
         setloading(false)
-        console.log('response', response);
+        
         if (response[0].error == true) {
-          setsnackbarValue({ value: response[0].message, color: 'darkred' });
+          setsnackbarValue({ value: response[0].message, color: 'red' });
           setVisible('true');
           
         } 
         else if (response[0].error == false) {
-          navigation.navigate('BottomTab')
+          console.log('response', response);
+          // navigation.navigate('Plaid')
+          navigation.navigate('VerifyCode',{
+            item:response[0]
+          })
         }
        })
       .catch(error => {
@@ -237,28 +246,27 @@ const Signup = ({ navigation }) => {
             onSubmitEditing={() => { ref_input2.current.focus() }}
             blurOnSubmit={false}
             autoFocus={true}
-            onChangeText={setUsername}
+            onChangeText={setName}
             style={AuthInputstyles.inputeditable}
             underlineColor={Colors.appgreycolor}
             activeUnderlineColor={Colors.appgreycolor}
             placeholderTextColor={Colors.greytext}
             placeholder={'Enter your Name'}
           />
-          <TouchableOpacity onPress={showDatepicker}>
-            <TextInput
-              label={'Date of birth'}
-              onChangeText={onChange}
-              value={showdaywise}
-              editable={false}
-              style={AuthInputstyles.inputeditable}
-              underlineColor={Colors.appgreycolor}
-              activeUnderlineColor={Colors.appgreycolor}
-              placeholderTextColor={'black'}
-              right={<TextInput.Icon name={'calendar-range'} color={Colors.greyicons}
-                onPress={showDatepicker}
-              />}
-            />
-          </TouchableOpacity>
+          <TextInput
+            label={'Username'}
+            returnKeyType={"next"}
+            // onSubmitEditing={() => { ref_input2.current.focus() }}
+            blurOnSubmit={false}
+            autoFocus={true}
+            onChangeText={setUsername}
+            style={AuthInputstyles.inputeditable}
+            underlineColor={Colors.appgreycolor}
+            activeUnderlineColor={Colors.appgreycolor}
+            placeholderTextColor={Colors.greytext}
+            placeholder={'Enter your Username'}
+          />
+          
           <TextInput
             ref={ref_input2}
             label={'Email'}
@@ -286,6 +294,7 @@ const Signup = ({ navigation }) => {
               onPress={handlePasswordVisibility} />}
             placeholderTextColor={'black'}
           />
+          
         </View>
 
 

@@ -178,7 +178,7 @@ const[desc,setDesc]=useState('')
                       resizeMode='contain'
                   />
                   <View style={{marginLeft:wp(3)}}>
-                  <Text style={styles.title} >title
+                  <Text style={styles.title} >
                 {item.title}
               </Text>
               <Text style={styles.details} >

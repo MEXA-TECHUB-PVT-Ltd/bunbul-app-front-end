@@ -17,7 +17,7 @@ import { Notifications } from "../../../model/Notifications";
 import { Popular, Video,Audio, PersonalCare,Delivery,News} from "../../../model/marketData";
 
 const DisneyImages = [
-    { image: require("../../StackScreens/SliderScreeen/images/Disney/disney1.1.png") },
+    // { image: require("../../StackScreens/SliderScreeen/images/Disney/disney1.1.png") },
     { image: require("../../StackScreens/SliderScreeen/images/Disney/disney1.2.png") },
     { image: require("../../StackScreens/SliderScreeen/images/Disney/disney1.3.png") },
     { image: require("../../StackScreens/SliderScreeen/images/Disney/disney1.4.png") },
@@ -153,9 +153,9 @@ const[UserImage,setUserImage]= useState()
   style={styles.itemimageView1}
   //images={images}
   images={[
-   require("../../StackScreens/SliderScreeen/images/Disney/disney1.1.png") ,
+  //  require("../../StackScreens/SliderScreeen/images/Disney/disney1.1.png") ,
  require("../../StackScreens/SliderScreeen/images/Disney/disney1.2.png") ,
-require("../../StackScreens/SliderScreeen/images/Disney/disney1.3.png"),
+// require("../../StackScreens/SliderScreeen/images/Disney/disney1.3.png"),
 require("../../StackScreens/SliderScreeen/images/Disney/disney1.4.png") ,
  require("../../StackScreens/SliderScreeen/images/Disney/disney1.5.png") 
     // {uri:BASE_URL+sliderdata[0]},
@@ -197,7 +197,7 @@ require("../../StackScreens/SliderScreeen/images/Disney/disney1.4.png") ,
                 //numColumns={4}
                 renderItem={({ item }) =>
                 <TouchableOpacity onPress={()=>navigation.navigate('SliderScreen',{navplace:'Market',
-                navtype:item.type})}> 
+                  navtype:item.type})}> 
                               <View style={{ marginBottom: 10,margin:wp(1.5),alignItems:'center' }}>
                     {/* <Text style={{ color: 'black' }}>{item.path}</Text> */}
                     <Image
